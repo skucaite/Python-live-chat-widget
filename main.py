@@ -21,7 +21,7 @@ def admin():
     return render_template('admin.html', users=users, chats=chats)
 
 # TRŪKSTA:
-# TO DO: Live typing indication
+# TO DO: Live typing indication - 50 % (left to make indication for users typo too)
 # TO DO: Sent/Delivered/Seen statuses
 # TO DO: Per session chat history (save as output?)
 # TO DO: Load chat history for user too (after refresh keep in same old room?)
@@ -65,6 +65,12 @@ def chat_chat(data):
     join_room(data['room'])
     past_messages = chats[data['room']]
     emit('show_past_messages', past_messages)
+
+# Live typing indicator
+@socketio.on('typing', namespace='/message')
+def live_typing(data):
+    room = data['room']
+    emit('display', data, room=room)
 
 
 @socketio.on_error(namespace='/message')

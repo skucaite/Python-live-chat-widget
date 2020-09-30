@@ -78,10 +78,54 @@ $(document).ready(function() {
       }
   });
 
-  $("#admin_message").keyup(function(event) {
-      if (event.keyCode === 13) {
-          $("#admin_send").click();
-      }
+  // $("#admin_message").keyup(function(event) {
+  //     if (event.keyCode === 13) {
+  //         $("#admin_send").click();
+  //     }
+  // });
+
+  // LIVE TYPING INDICATOR
+  var typing = false;
+  var timeout = undefined;
+  var user;
+
+  function typingTimeout(){
+    typing = false;
+    var room = $('#room').text();
+    message_socket.emit('typing', {'typing' : false, 'room' : room});
+  };
+
+// Admin typing
+  $('#admin_message').keypress(function(event) {
+      var room = $('#room').text();
+    if (event.keyCode != 13) {
+      typing = true;
+      message_socket.emit('typing', {'typing' : true, 'room' : room});
+      clearTimeout(timeout);
+      timeout = setTimeout(typingTimeout, 3000);
+    } else {
+      clearTimeout(timeout);
+      typingTimeout();
+      $('#admin_send').click();
+      $('#typing').text('');
+    }
   });
+
+  message_socket.on('display', function(data) {
+    if (data.typing == true) {
+      $('#typing').text('Agent is typing...');
+    } else {
+      $('#typing').text('');
+    }
+
+  });
+
+
+
+
+
+
+
+
 
 });
