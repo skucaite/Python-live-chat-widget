@@ -12,7 +12,7 @@ Install the latest version of python for your platform in the python docs `(http
 
 #### PIP Dependencies
 First ensure you are working using your created virtual environment. Once you have your virtual environment setup and running, install dependencies by running: ```pip install -r requirements.txt```
-This will install all of the required packages we selected within the `requirements.txt` file.
+This will install all of the required packages within the `requirements.txt` file.
 
 ### Running the server
 To run the server, execute:
@@ -23,4 +23,4 @@ flask run
 ```
 Setting the `FLASK_APP` variable to `main.py` directs flask to use `main.py` file to run the application.
 
-Navigate to Home page `http://localhost:5000` and `http://localhost:5000/admin` and start to chat. have fun!.
+Navigate to Home page `http://localhost:5000` and `http://localhost:5000/admin` and start to chat. Have fun!
