@@ -65,5 +65,23 @@ $(document).ready(function() {
     $('#admin_chatbox').append(msg+'<br>');
   });
 
+// GET INPUTS BY PRESSING ENTER
+  $("#username").keyup(function(event) {
+      if (event.keyCode === 13) {
+          $("#name_button").click();
+      }
+  });
+
+  $("#my_message").keyup(function(event) {
+      if (event.keyCode === 13) {
+          $("#user_send").click();
+      }
+  });
+
+  $("#admin_message").keyup(function(event) {
+      if (event.keyCode === 13) {
+          $("#admin_send").click();
+      }
+  });
 
 });

@@ -28,7 +28,6 @@ def admin():
 # TO DO: Alert new user, new messages for admin (+autoadd new user to chat menu)
 # TO DO: Break words if they are tooooooo long to fit chatbox window
 # TO DO: Doesn't work input required
-# TO DO: Let write messages with enter
 # TO DO: If user message room != current admin room change chat menu button color
 # TO DO: Add log out/disconnected
 
