@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>We are here to help you!</h1>
+<div class="">
+  <p>
+    TravelBookis a family-owned tour operator and travel agency located in Boston, MA.
+    We specialize in tours to Ireland but are always expanding and enhancing our wide range of offers, as well as adding new and exciting tours of Britain, Italy, Eastern Europe, Mexico and the Caribbean.
+    A family-owned business based in Boston, TravelBook was founded in 1985 by Jim & Teresa Kelly and since that humble beginning it has grown into a trusted resource that has helped tens of thousands of people better enjoy their travel.
+  </p>
+  <img src="https://cdn.pixabay.com/photo/2019/03/15/10/21/travel-4056730_960_720.jpg" alt="Travel" style="max-width: 600px">
+</div>
+<!-- Open chat dialog box and save name -->
+<button class="open-button" id="open-button">Chat</button>
+<div class="chat-popup" id="my_form">
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="form-container">
+    <h1>Chat with us!</h1>
+    <label for="user"><b>Your name:</b></label>
+    <input type="text" id="username" placeholder="Type your name..">
+    <input type="submit" id="name_button" class="btn btn-block btn-primary" value="Start Chat">
+  </div>
+</div>
+<!-- Start to chat -->
+<div class="chat-popup" id="chat_form">
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="form-container">
+    <h1>Chat</h1>
+    <p hidden id="user_room">{{room}}</p>
+    <p id="user_chatbox" class="textarea"></p>
+    <input type="text" id="my_message" class="msg" placeholder="Type message.." >
+    <input type="button" id="user_send" class="btn btn-primary btn-msg" value="Send">
+  </div>
+</div>
+{% endblock content %}

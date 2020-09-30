@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="">
+  <h1 style="padding-bottom: 20px; margin-left: 20px;">Welcome to admin dashboard</h1>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Chat Menu</h3>
+            <p class='text-muted list-group'>
+                {% if users != {} %}
+                  {% for room, user in users.items() %}
+                    <p class="list-group-item btn -open_chat" data-room="{{ room }}" data-user="{{ user }}"> {{ user }} </p>
+                  {% endfor %}
+                {% else %}
+                  <p class="list-group-item list-group-item-light">No chats</p>
+                {% endif %}
+            </p>
+          </div>
+        </div>
+        <div class="form-container" id="chat_window">
+          <h2 id="room_name" style="font-weight: bold;"></h2>
+          <p hidden id="room"></p>
+          <p id="admin_chatbox" class="textarea">Please choose one of chat if it's available.</p>
+          <input type="text" id="admin_message" class="msg" placeholder="Type message..">
+          <input type="button" id="admin_send" class="btn btn-primary btn-msg" value="Send">
+        </div>
+      </div>
+    </main>
+</div>
+{% endblock content %}
